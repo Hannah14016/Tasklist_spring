@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasklist</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Tasklist!</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Title</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="task:${tasks}" th:object="${task}">
+                <td th:text="*{status}"></td>
+                <td th:text="*{title}"></td>
+                <td><a class="btn btn-default btn-xs" th:href="@{/{id}(id=*{id})}">参照</a></td>
+                <td><a class="btn btn-default btn-xs" th:href="@{/{id}/edit(id=*{id})}">編集</a></td>
+                <td>
+                    <form th:action="@{/{id}(id=*{id})}" th:method="delete">
+                        <input class="btn btn-danger btn-xs" type="submit" value="削除">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/new">新規作成</a>
+    </div>
+</body>
+</html>

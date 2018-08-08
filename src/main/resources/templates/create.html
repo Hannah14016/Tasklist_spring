@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>New Task</h1>
+
+        <form th:action="@{/}" th:method="post">
+            <div class="form-group">
+                <label class="control-label">Title</label>
+                <input class="form-control" type="text" name="title" />
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+        <div class="pull-right">
+            <a class="btn btn-link" href="/">Top</a>
+        </div>
+    </div>
+</body>
+</html>
